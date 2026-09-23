@@ -1,0 +1,98 @@
+#include <stdio.h>
+
+int main() {
+    int choice;
+    int num, a, b, c;
+    char op;
+
+    printf("===== MENU =====\n");
+    printf("1. Check Positive/Negative/Zero\n");
+    printf("2. Check Even/Odd\n");
+    printf("3. Find Largest of Three Numbers\n");
+    printf("4. Simple Calculator\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+
+        case 1:
+            printf("Enter a number: ");
+            scanf("%d", &num);
+
+            if(num > 0)
+                printf("Positive Number\n");
+            else if(num < 0)
+                printf("Negative Number\n");
+            else
+                printf("Zero\n");
+
+            break;
+
+        case 2:
+            printf("Enter a number: ");
+            scanf("%d", &num);
+
+            if(num % 2 == 0)
+                printf("Even Number\n");
+            else
+                printf("Odd Number\n");
+
+            break;
+
+        case 3:
+            printf("Enter three numbers: ");
+            scanf("%d %d %d", &a, &b, &c);
+
+            if(a >= b && a >= c)
+                printf("Largest = %d\n", a);
+            else if(b >= a && b >= c)
+                printf("Largest = %d\n", b);
+            else
+                printf("Largest = %d\n", c);
+
+            break;
+
+        case 4:
+            printf("Enter first number: ");
+            scanf("%d", &a);
+
+            printf("Enter operator (+ - * /): ");
+            scanf(" %c", &op);
+
+            printf("Enter second number: ");
+            scanf("%d", &b);
+
+            switch(op) {
+
+                case '+':
+                    printf("Result = %d\n", a + b);
+                    break;
+
+                case '-':
+                    printf("Result = %d\n", a - b);
+                    break;
+
+                case '*':
+                    printf("Result = %d\n", a * b);
+                    break;
+
+                case '/':
+                    if(b != 0)
+                        printf("Result = %.2f\n", (float)a / b);
+                    else
+                        printf("Division by zero is not possible.\n");
+
+                    break;
+
+                default:
+                    printf("Invalid Operator!\n");
+            }
+
+            break;
+
+        default:
+            printf("Invalid Choice!\n");
+    }
+
+    return 0;
+}
